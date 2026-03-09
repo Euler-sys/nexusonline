@@ -8,8 +8,9 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const allTransactions = [
-    { type: "Credit", amount: 1000.00, date: "2025-22-04 05:55:00" },
-    { type: "Credit", amount: 500.00, date: "2025-25-02 09:00:00" },
+    { type: "Credit", amount: 500.00, date: "2025-08-04 09:00:00" },
+    
+    { type: "Credit", amount: 500.00, date: "2025-26-02 05:55:00" },
     { type: "Debit", amount: -200.0, date: "2025-02-07 14:30:00" },
     { type: "Credit", amount: 75000.0, date: "2025-01-02 16:00:00" },
     { type: "Debit", amount: -1500.0, date: "2025-01-02 10:20:00" },
