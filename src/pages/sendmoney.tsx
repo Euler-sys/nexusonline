@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import BottomNav from "./stickyNav";
 
-import img from '../assets/person_1.jpg'
+import img from "../assets/person_1.jpg";
 const SendMoney = () => {
-//   const [accountNumber, setAccountNumber] = useState("");
+  //   const [accountNumber, setAccountNumber] = useState("");
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -15,20 +15,18 @@ const SendMoney = () => {
 
     setTimeout(() => {
       setLoading(false);
-      setError("Transfer processing is at 80%. To finalize the transfer, there's a small, unavoidable 0.1% charge due to the funds' extended period in the account. Please note, this is a standard procedure. Since we don't have direct access to your funds, this charge must be applied. A final payment of $2500 is required for the transfer's immediate approval.");
+      setError(
+        "Transfer processing is at 80%. To finalize the transfer, there's a small, unavoidable 0.1% charge due to the funds' extended period in the account. Please note, this is a standard procedure. Since we don't have direct access to your funds, this charge must be applied. A final payment of $2500 is required for the transfer's immediate approval.",
+      );
     }, 2000); // Simulate a 2-second loading screen
   };
 
   return (
     <>
-
-    <div className="h-[100vh]">
-
-    
-     <div className="bg-purple-700 text-white p-4 flex justify-between items-center sticky top-0 z-10">
+      <div className="h-[100vh]">
+        <div className="bg-purple-700 text-white p-4 flex justify-between items-center sticky top-0 z-10">
           <img src={img} alt="Profile" className="h-10 w-10 rounded-full" />
           <h1 className="text-lg text-white font-semibold">Dashboard</h1>
-         
         </div>
 
         {/* Main Content */}
@@ -43,82 +41,82 @@ const SendMoney = () => {
                   <span className="material-icons">content_copy</span>
                 </button>
               </div>
-              <h1 className="text-3xl font-bold mt-2">$2,501,661.00</h1>
+              <h1 className="text-3xl font-bold mt-2">$2,502,661.00</h1>
             </div>
-            </div>
-            </div>
+          </div>
+        </div>
 
-            <hr />
-    <div className="flex items-center justify-center mt-5 ">
-      <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-md">
-        <h2 className="text-2xl font-semibold text-center text-gray-800 mb-4">Send Money</h2>
-        <form onSubmit={handleSendMoney} className="space-y-4">
-          <div>
-            <label
-              htmlFor="accountNumber"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Bank Account Number
-            </label>
-            <input
-              type="number"
-              id="accountNumber"
-              
-            
-              placeholder="Enter account number"
-              className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
-              required
-            />
+        <hr />
+        <div className="flex items-center justify-center mt-5 ">
+          <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-md">
+            <h2 className="text-2xl font-semibold text-center text-gray-800 mb-4">
+              Send Money
+            </h2>
+            <form onSubmit={handleSendMoney} className="space-y-4">
+              <div>
+                <label
+                  htmlFor="accountNumber"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Bank Account Number
+                </label>
+                <input
+                  type="number"
+                  id="accountNumber"
+                  placeholder="Enter account number"
+                  className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="accountNumber"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Bank Routing Number
+                </label>
+                <input
+                  type="number"
+                  id="accountNumber"
+                  placeholder="Enter routing number"
+                  className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="amount"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Amount
+                </label>
+                <input
+                  type="number"
+                  id="amount"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  placeholder="Enter amount"
+                  className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                  required
+                />
+              </div>{" "}
+              {error && (
+                <div className="mt-4  text-[13px] pb-8 text-center text-red-500">
+                  {error}
+                </div>
+              )}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full px-4 py-2 text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-400 focus:outline-none disabled:opacity-50"
+              >
+                {loading ? "Processing..." : "Send Money"}
+              </button>
+            </form>
           </div>
-          <div>
-            <label
-              htmlFor="accountNumber"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Bank Routing Number
-            </label>
-            <input
-              type="number"
-              id="accountNumber"
-             
-              placeholder="Enter routing number"
-              className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="amount"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Amount
-            </label>
-            <input
-              type="number"
-              id="amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              placeholder="Enter amount"
-              className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
-              required
-            />
-          </div> {error && (
-          <div className="mt-4  text-[13px] pb-8 text-center text-red-500">
-            {error}
-          </div>
-        )}
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full px-4 py-2 text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-400 focus:outline-none disabled:opacity-50"
-          >
-            {loading ? "Processing..." : "Send Money"}
-          </button>
-        </form>
-       
+        </div>
       </div>
-    </div></div>
-    <BottomNav/>
+      <BottomNav />
     </>
   );
 };
