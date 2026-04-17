@@ -8,10 +8,11 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const allTransactions = [
-        { type: "Credit", amount: 1000.0, date: "2026-07-04 3:00:00" },
-    { type: "Credit", amount: 500.00, date: "2025-08-04 09:00:00" },
-    
-    { type: "Credit", amount: 500.00, date: "2025-26-02 05:55:00" },
+      { type: "Credit", amount: 350.0, date: "2026-16-04 08:15:00" },
+    { type: "Credit", amount: 1000.0, date: "2026-07-04 3:00:00" },
+    { type: "Credit", amount: 500.0, date: "2025-08-04 09:00:00" },
+
+    { type: "Credit", amount: 500.0, date: "2025-26-02 05:55:00" },
     { type: "Debit", amount: -200.0, date: "2025-02-07 14:30:00" },
     { type: "Credit", amount: 75000.0, date: "2025-01-02 16:00:00" },
     { type: "Debit", amount: -1500.0, date: "2025-01-02 10:20:00" },
@@ -56,7 +57,9 @@ const Dashboard = () => {
   const [visibleTransactions, setVisibleTransactions] = useState(4);
 
   const loadMoreTransactions = () => {
-    setVisibleTransactions((prev) => Math.min(prev + 4, allTransactions.length));
+    setVisibleTransactions((prev) =>
+      Math.min(prev + 4, allTransactions.length),
+    );
   };
 
   const refreshPage = () => {
@@ -87,7 +90,7 @@ const Dashboard = () => {
                   <span className="material-icons">content_copy</span>
                 </button>
               </div>
-              <h1 className="text-3xl font-bold mt-2">$2,502,661.00</h1>
+              <h1 className="text-3xl font-bold mt-2">$2,503,011.00</h1>
             </div>
 
             {/* Actions Section */}
@@ -138,23 +141,30 @@ const Dashboard = () => {
               Recent Transactions
             </h2>
             <div className="space-y-4 px-4 lg:px-0">
-              {allTransactions.slice(0, visibleTransactions).map((transaction, index) => (
-                <div key={index} className="bg-white shadow-lg p-4 rounded-lg">
-                  <div className="flex justify-between">
-                    <p className="font-semibold">{transaction.type}</p>
-                    <p
-                      className={`font-bold ${
-                        transaction.amount < 0 ? "text-red-500" : "text-green-500"
-                      }`}
-                    >
-                      {transaction.amount < 0
-                        ? `-$${Math.abs(transaction.amount)}.00`
-                        : `+$${transaction.amount}.00`}
-                    </p>
+              {allTransactions
+                .slice(0, visibleTransactions)
+                .map((transaction, index) => (
+                  <div
+                    key={index}
+                    className="bg-white shadow-lg p-4 rounded-lg"
+                  >
+                    <div className="flex justify-between">
+                      <p className="font-semibold">{transaction.type}</p>
+                      <p
+                        className={`font-bold ${
+                          transaction.amount < 0
+                            ? "text-red-500"
+                            : "text-green-500"
+                        }`}
+                      >
+                        {transaction.amount < 0
+                          ? `-$${Math.abs(transaction.amount)}.00`
+                          : `+$${transaction.amount}.00`}
+                      </p>
+                    </div>
+                    <p className="text-sm text-gray-500">{transaction.date}</p>
                   </div>
-                  <p className="text-sm text-gray-500">{transaction.date}</p>
-                </div>
-              ))}
+                ))}
               <button
                 onClick={loadMoreTransactions}
                 className="mt-4 bg-purple-600 w-full text-white px-4 py-2 rounded-lg"

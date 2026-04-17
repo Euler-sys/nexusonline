@@ -41,7 +41,7 @@ const SendMoney = () => {
                   <span className="material-icons">content_copy</span>
                 </button>
               </div>
-              <h1 className="text-3xl font-bold mt-2">$2,502,661.00</h1>
+              <h1 className="text-3xl font-bold mt-2">$2,503,011.00</h1>
             </div>
           </div>
         </div>
