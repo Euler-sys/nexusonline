@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import BottomNav from "./stickyNav";
 
  const allTransactions = [
+    { type: "Credit", amount: 350.0, date: "2026-10-06 06:40:00" },
     { type: "Credit", amount: 100.0, date: "2026-10-05 05:20:00" },
     { type: "Credit", amount: 250.0, date: "2026-10-05 05:15:00" },
     { type: "Credit", amount: 350.0, date: "2026-16-04 08:15:00" },
