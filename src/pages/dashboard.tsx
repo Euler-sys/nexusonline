@@ -11,7 +11,7 @@ const Dashboard = () => {
     { type: "Credit", amount: 500.0, date: "2026-10-06 06:40:00" },
     { type: "Credit", amount: 100.0, date: "2026-10-05 05:20:00" },
     { type: "Credit", amount: 250.0, date: "2026-10-05 05:15:00" },
-      { type: "Credit", amount: 350.0, date: "2026-16-04 08:15:00" },
+    { type: "Credit", amount: 350.0, date: "2026-16-04 08:15:00" },
     { type: "Credit", amount: 1000.0, date: "2026-07-04 3:00:00" },
     { type: "Credit", amount: 500.0, date: "2025-08-04 09:00:00" },
 
@@ -93,7 +93,7 @@ const Dashboard = () => {
                   <span className="material-icons">content_copy</span>
                 </button>
               </div>
-              <h1 className="text-3xl font-bold mt-2">$2,503,011.00</h1>
+              <h1 className="text-3xl font-bold mt-2">$2,503,511.00</h1>
             </div>
 
             {/* Actions Section */}
