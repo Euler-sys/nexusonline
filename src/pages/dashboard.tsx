@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSyncAlt } from "react-icons/fa";
 import img from "../assets/person_1.jpg";
@@ -61,7 +61,7 @@ const Dashboard = () => {
     { type: "Debit", amount: -700.0, date: "2024-10-01 20:30:00" },
   ];
 
-  const [visibleTransactions, setVisibleTransactions] = useState(4);
+  // const [visibleTransactions, setVisibleTransactions] = useState(4);
 
   // const loadMoreTransactions = () => {
   //   setVisibleTransactions((prev) =>
