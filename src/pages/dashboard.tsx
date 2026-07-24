@@ -63,11 +63,11 @@ const Dashboard = () => {
 
   const [visibleTransactions, setVisibleTransactions] = useState(4);
 
-  const loadMoreTransactions = () => {
-    setVisibleTransactions((prev) =>
-      Math.min(prev + 4, allTransactions.length),
-    );
-  };
+  // const loadMoreTransactions = () => {
+  //   setVisibleTransactions((prev) =>
+  //     Math.min(prev + 4, allTransactions.length),
+  //   );
+  // };
 
   const refreshPage = () => {
     window.location.reload();
@@ -147,41 +147,33 @@ const Dashboard = () => {
             <h2 className="text-gray-700 font-medium mb-4 px-4 lg:px-0">
               Recent Transactions
             </h2>
-            <div className="space-y-4 px-4 lg:px-0">
-              {allTransactions
-                .slice(0, visibleTransactions)
-                .map((transaction, index) => (
-                  <div
-                    key={index}
-                    className="bg-white shadow-lg p-4 rounded-lg"
-                  >
-                    <div className="flex justify-between">
-                      <p className="font-semibold">{transaction.type}</p>
-                      <p
-                        className={`font-bold ${
-                          transaction.amount < 0
-                            ? "text-red-500"
-                            : "text-green-500"
-                        }`}
-                      >
-                        {transaction.amount < 0
-                          ? `-$${Math.abs(transaction.amount)}.00`
-                          : `+$${transaction.amount}.00`}
-                      </p>
-                    </div>
-                    <p className="text-sm text-gray-500">{transaction.date}</p>
-                  </div>
-                ))}
-              <button
-                onClick={loadMoreTransactions}
-                className="mt-4 bg-purple-600 w-full text-white px-4 py-2 rounded-lg"
-                disabled={visibleTransactions >= allTransactions.length}
+              <div className="mt-6 space-y-4">
+        {allTransactions.map((transaction, index) => (
+          <div
+            key={index}
+            className="bg-white p-4 rounded-lg shadow-md flex justify-between items-center"
+          >
+            <div>
+              <p
+                className={`font-bold ${
+                  transaction.type === "Debit" ? "text-red-500" : "text-green-500"
+                }`}
               >
-                {visibleTransactions >= allTransactions.length
-                  ? "No More Transactions"
-                  : "Load More"}
-              </button>
+                {transaction.type}
+              </p>
+              <p className="text-sm text-gray-500">{transaction.date}</p>
             </div>
+            <p
+              className={`font-bold text-lg ${
+                transaction.type === "Debit" ? "text-red-500" : "text-green-500"
+              }`}
+            >
+              {transaction.amount > 0 ? "+" : ""}
+              {transaction.amount.toFixed(2)}
+            </p>
+          </div>
+        ))}
+      </div>
           </div>
         </div>
       </div>
