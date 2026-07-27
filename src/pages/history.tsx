@@ -116,8 +116,7 @@ const TransactionHistory: React.FC = () => {
                 transaction.type === "Debit" ? "text-red-500" : "text-green-500"
               }`}
             >
-              {transaction.amount > 0 ? "+" : ""}
-              {transaction.amount.toFixed(2)}
+{transaction.type === 'Debit' ? "-" : "+"}              {transaction.amount.toFixed(2)}
             </p>
           </div>
         ))}
